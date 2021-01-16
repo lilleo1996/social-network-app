@@ -1,0 +1,26 @@
+.justify-content-center {
+  height: 100vh;
+}
+
+.login-wrapper {
+  height: 400px;
+}
+
+.account-info {
+  background-color: blue;
+}
+
+.login-form {
+  padding: 16px;
+}
+
+.alert {
+  margin-top: 12px;
+}
+
+.user-info {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid royalblue;
+  border-radius: 16px;
+}
