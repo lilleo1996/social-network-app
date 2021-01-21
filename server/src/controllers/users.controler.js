@@ -1,19 +1,85 @@
-const { v4: uuidv4 } = require('uuid');
+const User = require('../models/user.model');
 
-const { users } = require('../data/data')
-
-module.exports.getUsers = (req, res) => {
-  res.json({status: 'success', users}) 
+module.exports.getUsers = async (req, res) => {
+  const users = await User.find();
+  res.json({isSuccess: true, data: users}) 
 }
 
-module.exports.getUserById = (req, res) => {
-  const { id } = req.params
-  selectedUser =  users.find(user => user.id === id)
-  res.json({status: 'success', selectedUser}) 
+
+module.exports.getUserById = async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if(user) {
+    return res.json({
+      isSuccess: true,
+      data: user,
+    })
+  }
+  return res.json({
+    isSuccess: false,
+    message: 'User does not exist yet',
+  })
 }
 
-module.exports.createUser = (req, res) => {
-  const newUser = {id: uuidv4(), ...req.body }
-  users.push(newUser)
-  res.json({status: 'success', newUser}) 
+module.exports.createUser = async (req, res) => {
+  const { email, password, firstName, lastName, birthday, gender } = req.body
+  
+  if (!email || !password || !firstName || !lastName || !birthday || !gender) {
+    return res.json({
+      isSuccess: false,
+      message: 'Missing required fields',
+    });
+  }
+
+  const user = await User.findOne({ email })
+
+  if (user) {
+    return res.json({
+      isSuccess: false,
+      message: 'Email was registered',
+    })
+  }
+
+  const newUser = new User({ ...req.body })
+
+  newUser.save(function(err, doc){
+    if(err) {
+      return res.json({
+        isSuccess: false,
+        message: 'Database error',
+      })
+    } else {
+      return res.json({
+        isSuccess: true,
+        message: 'User is created',
+        data: doc,
+      })
+    }  
+ });
+}
+
+module.exports.updateUser = (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body, function(err, doc){
+    if (err) {
+      return res.json({
+        isSuccess: false,
+        message: 'Error in updating person with id',
+      })
+    }
+    return res.json({isSuccess: true, data: doc});
+ })
+}
+
+module.exports.deleteUser = (req, res) => {
+  User.findByIdAndRemove(req.params.id, function(err, response){
+    if (err) {
+      return res.json({
+        isSuccess: false,
+        message: `Error in deleting record id ${req.params.id}`,
+      })
+    }
+    return res.json({
+      isSuccess: true,
+      message: `Person with id ${req.params.id} removed` 
+    });
+ })
 }
