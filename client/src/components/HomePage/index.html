@@ -45,7 +45,6 @@
                   usersData = data.data
                 
                   usersData.forEach(user => {
-                    console.log('user.id', user._id)
                     $(".users-wrapper").append(
                       `<div class="user-info mb-3" key=${user._id}>` +
                         `${user.lastName} ${user.firstName}` + 
@@ -96,9 +95,14 @@
         })
 
         // HEART
-        $( ".users-wrapper" ).on( "click", ".user-info .reaction-wrapper .detail-reaction .detail-reaction__heart", function(event) {
-          event.preventDefault();
-          console.log('HEART - ', $(this).parents('.user-info').attr("key"));
+        // $( ".users-wrapper" ).on( "click", ".user-info .reaction-wrapper .detail-reaction .detail-reaction__heart", function(event) {
+        //   event.preventDefault();
+        //   console.log('HEART - ', $(this).parents('.user-info').attr("key"));
+        // })
+
+        // FIX DO NOT LISTEN EVENT
+        $(document).on( "click", ".detail-reaction__heart", function(event) {
+          console.log('hihi');
         })
  
       })
