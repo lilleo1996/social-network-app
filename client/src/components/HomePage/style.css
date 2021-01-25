@@ -1,0 +1,29 @@
+.justify-content-center {
+  height: 100vh;
+  padding: 0 2vw;
+}
+
+.groups-wrapper {
+  height: 90vh;
+  background-color: rebeccapurple;
+}
+
+.posts-wrapper {
+  height: 90vh;
+  background-color: aquamarine;
+}
+
+.users-wrapper {
+  height: 90vh;
+}
+
+.user-info {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid royalblue;
+  border-radius: 16px;
+}
+
+i {
+  margin-right: 5px;
+}

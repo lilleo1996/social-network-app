@@ -7,7 +7,13 @@ const userSchema = new Schema({
   firstName: String,
   lastName: String,
   birthday: String,
-  gender: String
+  gender: String,
+  reactions: {
+    like: Number,
+    dislike: Number,
+    smile: Number,
+    heart: Number,
+  }
 },
 {
   collection: 'Users',
