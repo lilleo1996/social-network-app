@@ -8,16 +8,10 @@ const userSchema = new Schema({
   lastName: String,
   birthday: String,
   gender: String,
-  reactions: {
-    like: Number,
-    dislike: Number,
-    smile: Number,
-    heart: Number,
-  }
+  created: { type: Date, default: Date.now }
 },
 {
   collection: 'Users',
-  timestamp: true,
 });
 
 module.exports = mongoose.model('User', userSchema);

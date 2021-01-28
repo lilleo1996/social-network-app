@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Signup Page</title>
 </head>
+
 <body>
-  <h3>Signup Page</h3>
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-lg-4 login-main">
+                <div class="logo-login mt-5 mb-5">
+                    <img src="../../assets/images/logo-gapo.svg" alt="">
+                </div>
+                <div class="login-intro">
+                    <p>Chào mừng bạn tạo tài khoản mới</p>
+                </div>
+                <div class="d-flex align-content-center flex-wrap">
+                    <div class="signup-form">
+                        <div class="row">
+                            <div class="form-group col col-dv-left">
+                                <input type="text" class="gPgfXu input-phone-number mb-3" placeholder="Họ" id="lastName">
+                            </div>
+                            <div class="form-group col col-dv-right">
+                                <input type="text" class="gPgfXu input-phone-number mb-3" placeholder="Tên" id="firstName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="gPgfXu input-phone-number mb-3" placeholder="Email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="gPgfXu input-phone-number mb-3" placeholder="Mật khẩu"
+                                id="password">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-3 col-dv-left">
+                                <p>Ngày sinh</p>
+                            </div>
+                            <div class="form-group col-lg-9 col-dv-right">
+                                <input type="date" class="gPgfXu input-phone-number mb-3" id="birthday">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-3 col-dv-left">
+                                <p>Giới tính</p>
+                            </div>
+                            <div class="form-group col-lg-9 col-dv-right">
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio" value="boy">Nam
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optradio" value="girl">Nữ
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="ihuaxi" id="signupBtn">Đăng ký</button>
+                        <hr class="line">
+                        <div class="">
+                            <a class="ihuaxi-signup" href="../LoginPage/index.html">Đăng nhập</a>
+                        </div>
+                    </div>
+                    <div class="login-intro-button mt-5">
+                        <a href="#">Chính sách & Điều khoãn</a>
+                        <a href="#">Câu hỏi thường gặp</a>
+                        <a href="#">Trợ giúp</a>
+                    </div>
+                    <div class="ihfPQr mt-5">
+                        <img src="../../assets/images/buildwithlove.png" alt="logo-bottom">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 banner-right kpwvSR">
+            </div>
+        </div>
+    </div>
+    <!-- Import depedencies -->
+    <script src="../../libs/jquery/jquery-3.5.1.min.js"></script>
+    <script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="index.js"></script>
 </body>
+
 </html>

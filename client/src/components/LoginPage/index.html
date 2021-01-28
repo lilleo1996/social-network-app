@@ -5,34 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
   <link rel="stylesheet" href="style.css">
   
   <title>Login Page</title>
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-8">
-        <div class="container">
-          <div class="row login-wrapper">
-            <div class="col-lg-7 col-md-12 account-info">
-            </div>
-            <div class="col-lg-5 col-md-12 login-form">
-              <div class="mb-3">
-                <label for="emailInput" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="emailInput">
-              </div>
-              <div class="mb-3">
-                <label for="passwordInput" class="form-label">Password</label>
-                <input type="password" class="form-control" id="passwordInput">
-              </div>
-              <div class="d-grid gap-2 col-12 mx-auto">
-                <button class="btn btn-primary" type="button" id="loginButton">Đăng nhập</button>
-                <button class="btn btn-success" type="button" id="signupButton">Đăng ký</button>
-              </div>
+    <div class="row ">
+      <div class="col-lg-4 login-main">
+        <div class="logo-login mt-5 mb-5">
+          <img src="../../assets/images/logo-gapo.svg" alt="">
+        </div>
+        <div class="login-intro">
+          <p>Xin chào Gapoer!</p>
+        </div>
+        <div class="d-flex align-content-center flex-wrap">
+          <div class="login-form bg-white mb-5">
+            <input type="text" class="gPgfXu input-phone-number" placeholder="Email hoặc số điện thoại" id="emailInput">
+            <input type="password" class="gPgfXu input-phone-number" placeholder="Mật khẩu" id="passwordInput">
+            <button class="ihuaxi" id="loginButton">
+              Đăng nhập
+            </button>
+            <hr class="line">
+            <div class="justify-content-center text-center">
+              <button class="ihuaxi-signup" id="signupButton">
+                Tạo tài khoản mới
+              </button>
             </div>
           </div>
+          <div class="login-intro-button mt-5">
+            <a href="#">Chính sách & Điều khoãn</a>
+            <a href="#">Câu hỏi thường gặp</a>
+            <a href="#">Trợ giúp</a>
+          </div>
+          <div class="ihfPQr mt-5">
+            <img src="../../assets/images/buildwithlove.png" alt="logo-bottom">
+          </div>
         </div>
+      </div>
+      <div class="col-lg-8 banner-right kpwvSR">
       </div>
     </div>
   </div>
@@ -42,49 +54,7 @@
   <script src="../../libs/jquery/jquery-3.5.1.min.js"></script>
 
   <!-- jQuery -->
-  <script>
-    $(document).ready(function() {
-      // LOGIN
-      $('#loginButton').click(function() {
-        const email= $("#emailInput").val()
-        const password = $("#passwordInput").val()
-        if(!email) {
-          $('.alert').remove()
-          $(".container-fluid").prepend(`<div class="alert alert-warning" role="alert">Email invalid</div>`)
-          return
-        }
-
-        if(!password) {
-          $('.alert').remove()
-          $(".container-fluid").prepend(`<div class="alert alert-warning" role="alert">Password invalid</div>`)
-          return
-        }
-
-        $.ajax(
-          {
-            url: "http://localhost:3000/login",
-            data: JSON.stringify({
-              email,
-              password
-            }),
-            type: 'POST',
-            contentType: 'application/json'
-          }).done( function (data) {
-              if(data.status === 'error') {
-                $('.alert').remove()
-                $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
-              } else {
-                window.location.replace('file:///C:/Users/HieuTC7/Downloads/social-network-app/client/src/components/HomePage/index.html')
-              }
-          })
-      })
-
-      // SIGN IN
-      $('#signupButton').click(function() {
-        window.location.replace('file:///C:/Users/HieuTC7/Downloads/social-network-app/client/src/components/SignupPage/index.html')
-      })
-     })
-  </script>
+  <script src="index.js"></script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const usersRoute = require('./routes/users.route');
 const loginRoute = require('./routes/login.route');
+const postsRoute = require('./routes/posts.route');
 
 const app = express();
 const port = 3000
@@ -20,6 +21,7 @@ mongoose.connect('mongodb://localhost:27017/social-network-app', (err) => {
 
 app.use("/users", usersRoute);
 app.use("/login", loginRoute);
+app.use("/posts", postsRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

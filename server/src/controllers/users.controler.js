@@ -2,7 +2,7 @@ const User = require('../models/user.model');
 
 module.exports.getUsers = async (req, res) => {
   const users = await User.find();
-  res.json({isSuccess: true, data: users}) 
+  res.json({isSuccess: true, users}) 
 }
 
 
@@ -11,7 +11,7 @@ module.exports.getUserById = async (req, res) => {
   if(user) {
     return res.json({
       isSuccess: true,
-      data: user,
+      user,
     })
   }
   return res.json({
@@ -51,7 +51,7 @@ module.exports.createUser = async (req, res) => {
       return res.json({
         isSuccess: true,
         message: 'User is created',
-        data: doc,
+        newUser: doc,
       })
     }  
  });
@@ -65,7 +65,7 @@ module.exports.updateUser = (req, res) => {
         message: 'Error in updating person with id',
       })
     }
-    return res.json({isSuccess: true, data: doc});
+    return res.json({isSuccess: true, updatedUser: doc});
  })
 }
 
@@ -79,7 +79,7 @@ module.exports.deleteUser = (req, res) => {
     }
     return res.json({
       isSuccess: true,
-      message: `Person with id ${req.params.id} removed` 
+      message: `Person with id ${req.params.id} removed`,
     });
  })
 }

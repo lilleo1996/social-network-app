@@ -1,12 +1,11 @@
-const { users } = require('../data/data')
+const User = require('../models/user.model');
 
-module.exports.login = (req, res) => {
+module.exports.login = async (req, res) => {
   const { email, password } = req.body
-  const user =  users.find(user => user.email === email && user.password === password)
-  
+  const user = await User.findOne({ email, password })
   if (user) {
-    res.json({status: 'success'}) 
+    res.json({isSuccess: true}) 
   } else {
-    res.json({status: 'error', message: 'Email or password incorrect'})
+    res.json({isSuccess: false, message: 'Email or password incorrect'})
   }
 }
